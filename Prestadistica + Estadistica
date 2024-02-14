@@ -1,0 +1,195 @@
+getwd()
+nuevo_dir="c:/Preestadistica"
+setwd(nuevo_dir)
+
+if(file.exists(nuevo_dir)) {
+  cat("Directorio creado correctamente: ",nuevo_dir, "\n")
+} else{
+  cat ("Fallo al crear Directorio: ",nuevo_dir, "\n")
+}
+
+#Ejercicio1 
+x = c(1,2,3,4,5)
+y = c(9.1,2.4,7.5,1.3,3.4)
+
+#Vector = estructura de datos uque almacena tipos de datos (numericos,cadenas de caracteres y/o lógicos)
+#Una lista tiene mas deuna dimensión 
+#ambos vectores tienen una longitud de 5 
+# El tipo double es un tipo de datos de coma flotante, es decir, puede almacenar números reales con decimales (hasta cierta precisión), tales como 3.1415926537 o 1.0, mientras que el tipo int es un tipo entero y solo puede almacenar números sin decimales, tales como 1, 2, 3, etc. Es por eso que al asignar un double a un int, java te alerta.
+# Que double aporta numeros con decimales e integer numeros enteros
+
+#Ejercicio2
+x+y
+x-y
+x*y
+x/y
+x^y
+
+#Ejercicio3
+y^2
+
+#Ejercicio4
+y*10
+
+#Ejercicio5
+y+25
+
+#Ejercicio6
+max(y)
+
+#Ejercicio7
+min(y)
+
+#Ejercicio8
+abs(y)
+
+#Ejercicio9
+sqrt(y)
+
+#Ejercicio10
+sum(y)
+
+#Ejercicio11
+list= list(c(x,y))
+print(list)
+typeof(list)
+str(list)
+View(list)
+#como hay decimales, la lista debe de estar en valor double
+
+#Ejercicio12
+is.na(list)
+
+#Ejercicio13
+z = c(29,NA,12,46,73)
+is.vector(z)
+
+#Ejercicio14
+mean(z,NA.rn=TRUE)
+
+#Ejercicio15
+matriz=matrix(c(24,69,3,90,23,56,1,63,87,21,77,19), nrow=4, byrow=TRUE)
+print(matriz)
+
+#Ejercicio16
+matriz_filas=matrix(c(24,69,3,90,23,56,1,63,87,21,77,19), ncol=4, byrow = FALSE)
+print(matriz_filas)
+
+#Ejercicio17
+a = matrix(c(1,2,3,4,5,6,7,8,9), nrow = 3, byrow=TRUE)
+b = matrix(c(10,11,12,13,14,15,16,17,18), nrow= 3, byrow=TRUE)
+print(a)
+print(b)
+
+#Ejercicio18
+suma_matriz = sum(a+b)
+resta_matriz = (a-b)
+#Todos los resultados son -9 porque las matematicas funcionan así
+
+#Ejercicio19
+matriz = "matriz_1"
+Matriz_1 = matrix(c(24,69,3,90,23,56,1,63,87,21,77,19), ncol=4, byrow=FALSE)
+print(Matriz_1)
+
+#Ejercicio20
+Matriz_1*3
+
+#Ejercicio21
+Matriz_mult = a*b
+
+#Ejercicio22
+Matriz_mult[2,3]
+Matriz_mult[2, ]
+Matriz_mult[ ,3]
+
+
+#PRACTICA
+
+#Ejercicio1
+set.seed(123)
+num_cuentas = round(rnorm(100, mean = 50, sd = 10))
+print(num_cuentas)
+
+#Ejercicio2
+mean(num_cuentas)
+
+#Ejercicio3
+median(num_cuentas)
+
+#Ejercicio4
+moda = as.numeric(names(sort(table(num_cuentas), decreasing = TRUE)[1]))
+print(paste("La moda de las cuentas en el yacimiento es: ",moda))
+
+#Ejercicio5
+range(num_cuentas)
+
+#Ejercicio6
+percentil_25 = quantile(num_cuentas, 0.25)
+print(paste("El percentil 25 de las cuentas de yacimiento es: ",percentil_25))
+
+#Ejercicio7
+percentil_75 = quantile(num_cuentas, 0.75)
+print(paste("El percentil 75 de las cuentas de yacimiento es: ",percentil_75))
+
+#Ejercicio8
+var(num_cuentas)
+
+#Ejercicio9
+sd(num_cuentas)
+
+#Ejercicio10
+hist(num_cuentas)
+hist(num_cuentas, main = "histograma")
+
+#Ejercicio11
+boxplot(num_cuentas, main = "Número de cuentas", border = "black", horizontal = T)
+
+#Ejercicio12
+densidad = density(num_cuentas)
+plot(densidad, main = "Gráfico de densidad", border = "blue")
+
+#Ejercicio13
+barplot(num_cuentas, main = "Gráfico de barras", xlab = "yacimientos", ylab = "número de cuentas", border = "black", col = "pink")
+
+#Ejercicio14
+num_registros = 10
+
+tipo_artefactos = c("fibula","puñal","lanza","asa","casco","clavo","lucerna","arco","punta","cuenta")
+muestra_tipoartefacto = sample(tipo_artefactos, 10, replace =T)
+print(muestra_tipoartefacto)
+
+datos = data.frame(tipo_artefactos = muestra_tipoartefacto)
+print(datos)
+table(datos)
+
+material = c("oseo","metal","ceramica","madera")
+muestra_material = sample(material, 10, replace = T)
+print(muestra_material)
+
+datos = data.frame(material = muestra_material)
+print(datos)
+table(datos)
+
+periodo_cultural = c("contemporáneo", "moderno", "prehistórico","antiguo")
+muestra_periodocultural = sample(periodo_cultural, 10, replace=T)
+print(muestra_periodocultural)
+
+datos = data.frame(periodo_cultural = muestra_periodocultural)
+print(datos)
+table(datos)
+
+estado_conservacion = c("mala", "buena", "media")
+muestra_estadoconservacion = sample(estado_conservacion, 10, replace=T)
+print(muestra_estadoconservacion)
+
+datos = data.frame(estado_conservacion = muestra_estadoconservacion)
+print(datos)
+table(datos)
+
+ubicacion_artefacto = c("UE1","UE2", "U3","UE4")
+muestra_ubicacionartefacto = sample(ubicacion_artefacto, 10, replace=T)
+print(muestra_ubicacionartefacto)
+
+datos = data.frame(ubicacion_artefacto = muestra_ubicacionartefacto)
+print(datos)
+table(datos)
